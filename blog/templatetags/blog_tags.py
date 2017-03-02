@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
 from django import template
 from django.db.models import Count
 from django.utils.safestring import mark_safe
