@@ -32,7 +32,7 @@ urlpatterns = [
                            app_name='blog')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns += static(settings.MEDIA_URL,
-                      document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL,
+#                      document_root=settings.MEDIA_ROOT)
