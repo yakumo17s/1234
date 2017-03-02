@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vw$st6*s^fwr%8qj!n9r9aziub&od%&8&i^(gl0c#uf45j^2i^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['104.160.41.99']
 
@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static/')
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'common_static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
