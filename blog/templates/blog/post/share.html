@@ -1,21 +1,21 @@
 {% extends "blog/base.html" %}
 
-{% block title %}Share a post{% endblock %}
+{% block title %}分享文章{% endblock %}
 
 {% block content %}
     {% if sent %}
-        <h1>E-mail successfully sent</h1>
+        <h1>邮件发送成功</h1>
         <!-- todo注意下这里的cd.to的使用,cd -->
         <p>
-            "{{ post.title }}" was successfully sent to {{ cd.to }}.
+            "{{ post.title }}" 已成功发送到 {{ cd.to }}.
         </p>
     {% else %}
-        <h1>Share "{{ post.title }}" by e-mail</h1>
+        <h1>分享 "{{ post.title }}" </h1>
         <form action="." method="post">
             <!-- as.p 让每个输入框在一个<p>标签中 -->
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Send e-mail">
+            <input type="submit" value="发送邮件">
         </form>
     {% endif %}
 {% endblock %}
