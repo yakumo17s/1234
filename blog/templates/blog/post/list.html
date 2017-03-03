@@ -28,6 +28,7 @@
         </p>
         <!-- truncatewords 截取部分字符, linebreak会自动在有一空行段落前后加<p>,无空行段落加<br /> -->
         {{ post.body | markdown | truncatewords_html:30 }}
+        <br /><br /><br />
     {% endfor %}
     {% include "pagination.html" with page=posts %}
 {% endblock %}

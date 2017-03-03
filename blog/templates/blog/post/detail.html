@@ -28,7 +28,7 @@
     <!-- the number of comments -->
     {% with comments.count as total_comments %}
         <h2>
-            {{ total_comments }} 条评论{{total_comments|pluralize}}
+            {{ total_comments }} 条评论 //{{total_comments|pluralize}}
         </h2>
     {% endwith %}
 
