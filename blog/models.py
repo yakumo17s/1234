@@ -59,7 +59,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, related_name='comments')
+    post = models.ForeignKey(Post, related_name='评论')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

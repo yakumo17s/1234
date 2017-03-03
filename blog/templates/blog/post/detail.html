@@ -7,12 +7,12 @@
     <h1>{{ post.title }}</h1>
     <p class="tags">Tags: {{ post.tags.all | join:", " }}</p>
     <p class="date">
-        Published {{ post.publish }} by {{ post.author }}
+        时间 {{ post.publish }} 作者 {{ post.author }}
     </p>
     {{ post.body | markdown }}
     <p>
         <a href="{% url 'blog:post_share' post.id %}">
-            Share this post
+            分享该文章
         </a>
     </p>
 
@@ -22,13 +22,13 @@
             <a href="{{ post.get_absolute_url }}">{{ post.title}}</a>
         </p>
     {% empty %}
-        There is no similar post yet.
+        没有相关文章.
     {% endfor %}
 
     <!-- the number of comments -->
     {% with comments.count as total_comments %}
         <h2>
-            {{ total_comments }} comment{{total_comments|pluralize}}
+            {{ total_comments }} 评论{{total_comments|pluralize}}
         </h2>
     {% endwith %}
 
@@ -43,15 +43,15 @@
             {{ comment.body|linebreaks }}
         </div>
     {% empty %}
-        <p>There are no comments yet.</p>
+        <p>尚无评论.</p>
     {% endfor %}
 
 
     <!-- comment form -->
     {% if new_comment %}
-        <h2>Your comment has been added.</h2>
+        <h2>评论已添加.</h2>
     {% else %}
-        <h2>Add a new comment</h2>
+        <h2>添加新评论</h2>
         <form action="." method="post">
             {{ comment_form.as_p }}
             {% csrf_token %}

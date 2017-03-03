@@ -13,10 +13,10 @@
     </div>
     <div id="sidebar">
         <h2>My blog</h2>
-            <p>This is my blog. I've written {% total_posts %} posts so far. </p>
-            <p><a href="{% url 'blog:post_feed' %}">Subscribe to my RSS feed</a></p>
+            <p>yakumo17s的blog. 共有 {% total_posts %} 篇. </p>
+            <p><a href="{% url 'blog:post_feed' %}">分享</a></p>
         {% show_latest_posts 6 %}
-        <h3>Most commented posts</h3>
+        <h3>最多评论</h3>
 
         <!-- 引入变量需先赋值,不然会直接在 template显示出列表 -->
         {% get_most_commented_posts as most_commented_posts %}
