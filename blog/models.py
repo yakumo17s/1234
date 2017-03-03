@@ -34,22 +34,22 @@ class Post(models.Model):
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
-    标题 = models.CharField(max_length=250)
+    title = models.CharField(max_length=250)
     # slug
     slug = models.SlugField(max_length=250,
                             unique_for_date='publish')
     # related_name的作用,可以使用User的实例 user.blog_posts 获得该表
     # 默认为post_set ,小写的模型名后加上 _set
-    作者 = models.ForeignKey(User, related_name='blog_posts')
-    正文 = models.TextField()
+    author = models.ForeignKey(User, related_name='blog_posts')
+    body = models.TextField()
     # todo 这个 publish  created 有什么区别?为什么 timezone.now()会报错
     # timezone.now()的话只会在 models.py 读取时执行一次,timezone.now 会在每次创建新实例时执行.
-    发布时间 = models.DateTimeField(default=timezone.now)
+    publish = models.DateTimeField(default=timezone.now)
     # auto_now_add 创建时自动设置为当前时间
-    创建时间 = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     # auto_now 每次 save()时设置为现在时间
-    更新时间 = models.DateTimeField(auto_now=True)
-    状态 = models.CharField(max_length=10,
+    updated = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=10,
                               choices=STATUS_CHOICE,
                               default='draft')
     objects = models.Manager()  # the default manager
@@ -59,7 +59,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, related_name='评论')
+    post = models.ForeignKey(Post, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
